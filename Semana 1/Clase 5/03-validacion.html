@@ -11,30 +11,30 @@
     </header>
     <main>
         <section>
-            <form action="./pagina.html" method="GET">
+            <form>
                 <p>
                     <label for="nombre">Nombre:</label>
-                    <input type="text" placeholder="Ejm: Gonzalo" id="nombre" name="inputNombre">
+                    <input type="text" placeholder="Ejm: Gonzalo" id="nombre" name="inputNombre" required autofocus>
                 </p>
                 <p>
                     <label for="apellido">Apellido:</label>
-                    <input type="text" placeholder="Ejm: Carhuachin" id="apellido" name="inputApellido">
+                    <input type="text" placeholder="Ejm: Carhuachin" id="apellido" name="inputApellido" required>
                 </p>
                 <p>
                     <label for="fechaNac">Fecha de Nacimiento:</label>
-                    <input type="date" id="fechaNac" name="fecha">
+                    <input type="date" id="fechaNac" name="fecha" required>
                 </p>
                 <p>
                     <label for="sueldo">Sueldo:</label>
-                    <input type="number" id="sueldo" name="inputSueldo">
+                    <input type="number" id="sueldo" name="inputSueldo" required>
                 </p>
                 <p>
                     <label for="pwd">Contraseña:</label>
-                    <input type="password" id="pwd" name="inputClave">
+                    <input type="password" id="pwd" name="inputClave" required minlength="6" maxlength="20" pattern="">
                 </p>
                 <p>
                     <label for="correo">E-mail:</label>
-                    <input type="email" id="correo" name="inputCorreo">
+                    <input type="email" id="correo" name="inputCorreo" required>
                 </p>
                 <p>
                     <label for="color">Color Favorito:</label>
@@ -75,7 +75,7 @@
                     <textarea name="inputMensaje" id="mensaje" cols="30" rows="10" placeholder="Escriba un mensaje al administrador"></textarea>
                 </p>
                 <p>
-                    <label for="">Seleccione un pais:</label>
+                    <label for="paises">Seleccione un pais:</label>
                     <select id="paises" name="inputPais">
                         <option value="">--Seleccione--</option>
                         <option value="p">Perú</option>
