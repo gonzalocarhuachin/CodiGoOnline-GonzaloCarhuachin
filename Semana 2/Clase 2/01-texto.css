@@ -1,0 +1,27 @@
+/* Familia de fuente */
+
+h1
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h4
+{
+    font-weight: bold;
+}
+
+p
+{
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+small
+{
+    font-style: italic;
+}
+
+.texto-footer
+{
+    font: 100 10px Arial;
+}

@@ -1,0 +1,34 @@
+@font-face
+{
+    font-family: 'comic-neue';
+    src: url('./ComicNeue-Regular.ttf');
+}
+
+h1
+{
+    text-align: center;
+}
+
+p:not(.texto-footer):not(.letra-comica)
+{
+    text-indent: 40px;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    line-height: 15px;
+}
+
+.letra-comica
+{
+    font-family: 'comic-neue';
+}
+
+small
+{
+    text-decoration: overline;
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,39 @@
+li:nth-child(3){
+    color: chocolate;
+}
+
+/* Seleccionando al primer elemento de un grupo de hermanos al mismo nivel */
+
+p:first-child{
+    color: crimson;
+}
+
+/* Seleccionando al ultimo elemento de un grupo de hermanos al mismo nivel */
+
+p:last-child{
+    color: blue;
+}
+
+/* Seleccionar todos los elementos impares de un grupo de hermanos al mismo nivel */
+
+tbody tr:nth-child(odd) {
+    background-color: tan;
+}
+
+/* Pares */
+
+tr:nth-child(even) {
+    background-color: silver;
+}
+
+/* :not()*/
+
+ul :not(.seleccionado){
+    color: red;
+}
+
+/* Todos los parrafos excepto los que tengan la clase "grande" */
+
+h4:not(.letra-grande){
+    color: violet;
+}
