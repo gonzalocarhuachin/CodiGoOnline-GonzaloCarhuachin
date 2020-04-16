@@ -1,0 +1,56 @@
+*
+{
+    margin: 0;
+}
+
+body
+{
+    background-color: gray;
+}
+
+header
+{
+    background-color: black;
+}
+
+h1
+{
+    background-color: red;
+}
+
+main
+{
+    width: 50%;
+    background-color: white;
+    height: 600px;
+}
+
+.seccion-1
+{
+    background-color: darkblue;
+    color: white;
+    width: 50%;
+}
+
+.seccion-2
+{
+    background-color: darkred;
+    color: white;
+    width: 50%;
+    height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+footer
+{
+    background-color: black;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer>p
+{
+    text-align: center;
+    background-color: blue;
+}
