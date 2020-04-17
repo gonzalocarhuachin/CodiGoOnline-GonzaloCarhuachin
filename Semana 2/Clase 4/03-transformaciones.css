@@ -1,0 +1,34 @@
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div
+{
+    margin: 50px auto 0px auto;
+    height: 100px;
+    width: 100px;
+    background-color: #dddddd;
+}
+
+#div-1:hover
+{
+    transform: scale(1.1, 1.1);
+}
+
+#div-2
+{
+    background-image: url('https://via.placeholder.com/100');
+    transform: rotate(45deg);
+}
+
+#div-3:hover
+{
+    transform: translate(30px, 10px);
+}
+
+#div-4:hover
+{
+    transform: scale(1.2, 0.9) rotate(45deg);
+}
