@@ -16,6 +16,11 @@ header
     width: 600px;
 }
 
+#contenedor > div
+{
+    border: 1px solid red;
+}
+
 #caja-1, #caja-2
 {
     width: 140px;
@@ -30,6 +35,30 @@ header
     height: 50px;
     background-color: tomato;
     float: left;
+}
+
+#navegacion
+{
+    background-color: crimson;
+    color: white;
+    text-align: center;
+}
+
+.navegacion-wraper
+{
+    margin: 0 auto;
+    background-color: green;
+    width: 600px;
+}
+
+.navegacion-wraper>div:not(.fix)
+{
+    background-color: indigo;
+    float: left;
+    width: 200px;
+    text-align: center;
+    border: 1px solid yellow;
+    padding: 15px;
 }
 
 .fix

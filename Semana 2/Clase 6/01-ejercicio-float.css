@@ -1,0 +1,38 @@
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header
+{
+    height: 70px;
+    background-color: indigo;
+}
+
+main
+{
+    height: 830px;
+    background-color: tomato;
+}
+
+aside
+{
+    height: 830px;
+    width: 20%;
+    float: left;
+    background-color: orange;
+}
+
+#principal
+{
+    height: 830px;
+    width: 60%;
+    float: left;
+    background-color: orangered;
+}
+
+.fix
+{
+    clear: both;
+}
