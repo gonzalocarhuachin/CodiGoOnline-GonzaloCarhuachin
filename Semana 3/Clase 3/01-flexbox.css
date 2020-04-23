@@ -1,0 +1,55 @@
+*
+{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.padre
+{
+    flex-wrap: wrap;
+    display: flex;
+    height: 500px;
+    flex-direction: row;/*Valor por defecto*/
+    border: 1px solid red;
+    align-items: center;
+    justify-content: center;
+    /*align-content: center;*/
+}
+
+.padre>div
+{
+    height: 145px;
+    margin: 5px;
+    background-color: #cccccc;
+}
+
+.caja-1
+{
+    width: 100px;
+}
+
+.caja-2
+{
+    width: 100px;
+}
+
+.caja-3
+{
+    width: 100px;
+}
+
+.caja-4
+{
+    width: 100px;
+}
+
+.caja-5
+{
+    width: 100px;
+}
+
+.caja-6
+{
+    width: 100px;
+}
