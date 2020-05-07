@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        main
+        {
+            border: 1px solid blue;
+            padding-top: 30px;
+        }
+        #parrafo
+        {
+            width: 300px;
+            border: 1px solid red;
+        }
+        .danger
+        {
+            background-color: red;
+        }
+        .success
+        {
+            background-color: green;
+        }
+        #miSection
+        {
+            width: 300px;
+            height: 300px;
+        }
+        .sombra
+        {
+            box-shadow: #444 0px 5px 10px;
+        }
+        .fondo-naranja
+        {
+            background-color: orange;
+        }
+        .borde
+        {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Titulo</h1>
+    </header>
+    <main>
+        <p id="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quaerat, illum commodi sunt nobis odit, quia optio veniam officiis aperiam quod ullam fugit itaque quas. Obcaecati sit debitis non sunt?</p>
+        <button id="btnRojo">CAMBIAR FONDO ROJO</button>
+        <button id="btnVerde">CAMBIAR FONDO VERDE</button>
+        <button id="btnToggle">CAMBIAR FONDO</button>
+        <section id="miSection" class="sombra borde fondo-naranja"></section>
+    </main>
+    <script src="./04-element.js"></script>
+</body>
+</html>
