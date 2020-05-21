@@ -1,34 +1,60 @@
 const dibujarPeliculas = ({ results }) => {
- results.forEach((peli) => {
-  $("#contenedor-peliculas").append(`
-       <div class="carousel-cell">
-        <div class="card">
-         <img src="http://placehold.it/150x150" alt="" class="card-img-top">
-         <div class="card-body">
-          <h4 class="card-title">${peli.original_title}</h4>
-          <p class="card-text">
-           ${peli.overview}
-          </p>
-         </div>
-        </div>
-       </div>`);
- });
+  results.forEach((peli) => {
 
- $('#contenedor-peliculas').flickity({
-  // options
-  cellAlign: 'left',
-  contain: true
- });
+    let carouselCell = $(`<div class="carousel-cell"></div>`);
+    let card = $(`<div class="card"></div>`);
+    let imagen = $(`<div class="card-img-top imagen-pelicula"></div>`);
+    imagen.css("background-image", `url("https://image.tmdb.org/t/p/w500${peli.poster_path}")`);
+
+    let cardBody = $(`<div class="card-body"></div>`);
+    let cardTitle = $(`<h4 class="card-title">${peli.title}</h4>`);
+
+    let cardText = $(`<p class="card-text">${peli.overview.substr(0, 50)}</p>`);
+    let leerMas = $(`<span>... Leer Mas</span>`);
+    leerMas.onclick(() => 
+    {
+      if(cardText.html().length === 75)
+      {
+        leerMas.html(` Leer menos`);
+        cardText.html(peli.overview);
+        cardText.append(leerMas);
+      }
+      else
+      {
+        //significa que tiene un texto mas grande
+        leerMas.html(`... Leer Mas`);
+        cardText.html(peli.overview.substr(0,50));
+        cardText.append(leerMas);
+
+      }
+    })
+    cardText.append(leerMas);
+
+    cardBody.append(cardTitle);
+    cardBody.append(cardText);
+    card.append(imagen);
+    card.append(cardBody);
+
+    carouselCell.append(card);
+
+    $("#contenedor-peliculas").append(carouselCell);
+  });
+
+  $('#contenedor-peliculas').flickity({
+    // options
+    cellAlign: 'left',
+    contain: true
+  });
 }
 
 const traerPeliculas = () => {
- let endpoint = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=105eb79aa1e6df60a2b95878ad2289aa";
- fetch(endpoint, { method: 'GET', body: null })
-  .then((response) => {
-   response.json().then((data) => {
-    dibujarPeliculas(data);
-   })
-  })
+  let endpoint = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=105eb79aa1e6df60a2b95878ad2289aa&language=es";
+  fetch(endpoint, { method: 'GET', body: null })
+    .then((response) => {
+      response.json().then((data) => {
+        dibujarPeliculas(data);
+      })
+    })
 }
 
 traerPeliculas();
