@@ -1,9 +1,7 @@
-export class Cliente
+import {Persona} from "./Persona.js";
+
+export class Cliente extends Persona
 {
-    nombre;
-    apellido;
-    dni;
-    id;
     nroCliente;
     //No se pueden hacer operaciones en las clases a no ser que sean dentro de una funcion
 
@@ -11,11 +9,9 @@ export class Cliente
     //Sirve para poder inicializar valores por defecto en los atributos de un objeto creado
     constructor(_nombre, _apellido, _dni, _id, _nroCliente)
     {
+        //super() seria como colocar constructorDelPadre
+        super(_nombre, _apellido, _dni, _id);
         //funcion reservada de la clase
-        this.nombre = _nombre;
-        this.apellido = _apellido;
-        this.dni = _dni;
-        this.id = _id;
         this.nroCliente = _nroCliente;
     }
 }

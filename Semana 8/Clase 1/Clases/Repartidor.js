@@ -1,8 +1,12 @@
-export class Repartidor
+import {Persona} from "./Persona.js";
+
+//Aplicando herencia
+export class Repartidor extends Persona
 {
-    nombre;
-    apellido;
-    dni;
-    id;
     nroMoto;
+    constructor(_nombre, _apellido, _dni, _id)
+    {
+        super(_nombre, _apellido, _dni, _id);
+        this.nroMoto = _nroMoto;
+    }
 }
