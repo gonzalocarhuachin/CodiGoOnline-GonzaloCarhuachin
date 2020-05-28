@@ -4,6 +4,7 @@ import React from 'react';
 //obviamente desde otro lugar
 const Header = (props) =>
 {
+    console.log(props.links);
     //Todo componente debe retornar como maximo una etiqueta
     return(
         <header>
