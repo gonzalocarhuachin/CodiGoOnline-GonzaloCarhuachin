@@ -37,7 +37,6 @@ function App() {
   const saludar = (nombre) =>
   {
     console.log(`Saludando ${nombre}`);
-    
   }
 
   return (
@@ -50,7 +49,7 @@ function App() {
         <Productos productos={productos} saludar={saludar} actualizarCarrito={actualizarCarrito} carrito={carrito}/>
       </main>
       <Footer/>
-      <Carrito carrito={carrito}/>
+      <Carrito carrito={carrito} actualizarCarrito={actualizarCarrito}/>
     </Fragment>
   );
 }
