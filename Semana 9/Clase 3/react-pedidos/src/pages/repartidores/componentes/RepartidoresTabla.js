@@ -1,7 +1,7 @@
 import React from 'react';
 import RepartidorFila from './RepartidorFila';
 
-const RepartidoresTabla = ({repartidores}) => {
+const RepartidoresTabla = ({repartidores, setObjRepartidor}) => {
     return (
         <table className="table table-hover table-bordered table-striped">
             <thead>
@@ -19,7 +19,7 @@ const RepartidoresTabla = ({repartidores}) => {
                 {
                     repartidores.map((repartidor, i) => 
                     {
-                        return <RepartidorFila numero={i} repartidor={repartidor} key={repartidor.id}/>
+                        return <RepartidorFila numero={i} repartidor={repartidor} key={repartidor.id} setObjRepartidor={setObjRepartidor}/>
                     })
                 }
             </tbody>
