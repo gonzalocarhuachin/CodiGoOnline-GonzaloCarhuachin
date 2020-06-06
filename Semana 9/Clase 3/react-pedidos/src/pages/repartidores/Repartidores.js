@@ -1,7 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Cargando from '../../components/Cargando';
 import RepartidoresTabla from './componentes/RepartidoresTabla';
-import RepartidorForm from './componentes/RepartidorForm';
+// import RepartidorForm from './componentes/RepartidorForm';
+import RepartidorFormV2 from './componentes/RepartidorFormV2';
 
 const Repartidores = () => {
 
@@ -35,7 +36,7 @@ const Repartidores = () => {
         <Fragment>
             <div className="row justify-content-center">
                 <div className="col-md-8">
-                    <RepartidorForm getRepartidores={getRepartidores} objRepartidor={objRepartidor} setObjRepartidor={setObjRepartidor}/>
+                    <RepartidorFormV2 getRepartidores={getRepartidores} objRepartidor={objRepartidor} setObjRepartidor={setObjRepartidor}/>
                 </div>
             </div>
             <div className="row justify-content-center">

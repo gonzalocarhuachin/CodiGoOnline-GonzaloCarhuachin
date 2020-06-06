@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PedidoForm from './componentes/PedidoForm';
 
 const Pedidos = () => {
     return (
-        <div>
-            
-        </div>
+        <Fragment>
+            <PedidoForm />
+        </Fragment>
     );
 }
 
