@@ -2,28 +2,29 @@ import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { URL_BACKEND } from '../../../variables/variables';
 
-const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
+const ProductoForm = ({getProductos, objProducto, setObjProducto}) => {
 
-    let formVacio = {
-        cli_nom: '',
-        cli_ape: '',
-        cli_est: '',
-        cli_dni: ''
-      };
+    let formVacio = 
+    {
+        pro_nom: '',
+        pro_prec: '',
+        pro_img: '',
+        pro_est: ''
+    };
 
     const [formulario, setFormulario] = useState({});
-    
+
     useEffect(() =>
     {
-        if(objCliente)
+        if(objProducto)
         {
-            setFormulario(objCliente);
+            setFormulario(objProducto);
         }
         else
         {
             setFormulario(formVacio);
         }
-    }, [objCliente])
+    }, [objProducto])
 
     const handleChange = (e) =>
     {
@@ -34,13 +35,13 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
             })
     }
 
-    const postCliente = (nuevoCliente) =>
+    const postProducto = (nuevoProducto) =>
     {
-        const endpoint = `${URL_BACKEND}/cliente`;
+        const endpoint = `${URL_BACKEND}/producto`;
 
         fetch(endpoint, {
             method: 'POST',
-            body: JSON.stringify(nuevoCliente),
+            body: JSON.stringify(nuevoProducto),
             headers: {
               "Content-type": "application/json"
             }
@@ -49,20 +50,20 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
               Swal.fire({
                 title: 'Éxito!',
                 icon: 'success',
-                text: 'El Cliente ha sido creado con éxito en la base de datos',
+                text: 'El Producto ha sido creado con éxito en la base de datos',
                 timer: 2000,
               });
-              getClientes();
+              getProductos();
             })
           })
     }
 
-    const putCliente = (nuevoCliente) => {
-        const endpoint = `${URL_BACKEND}/cliente/${objCliente.id}`;
+    const putProducto = (nuevoProducto) => {
+        const endpoint = `${URL_BACKEND}/producto/${objProducto.id}`;
         fetch(endpoint, {
           method: 'PUT',
           headers: { "Content-type": "application/json" },
-          body: JSON.stringify(nuevoCliente)
+          body: JSON.stringify(nuevoProducto)
         }).then((response) => {
           response.json().then((data) => {
             Swal.fire({
@@ -71,15 +72,16 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
               icon: "success",
               timer: 1500
             });
-            getClientes();
-            setObjCliente(null);
+            getProductos();
+            setObjProducto(null);
           })
         })
     }
-    
-    const enviarFormulario = (e) => {
+
+    const enviarFormulario = (e) =>
+    {
         e.preventDefault()
-        if(formulario.cli_nom.trim() === "" ||formulario.cli_ape.trim() === "" ||formulario.cli_dni.trim() === "" ||formulario.cli_est.trim() === "")
+        if(formulario.pro_nom.trim() === "" ||formulario.pro_prec.trim() === "" ||formulario.pro_img.trim() === "" ||formulario.pro_est.trim() === "")
         {
           Swal.fire(
             {
@@ -91,7 +93,7 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
         }
         else
         {
-          if (objCliente) {
+          if (objProducto) {
             Swal.fire({
               title: '¿Seguro que desea editar el registro?',
               icon: 'info',
@@ -99,8 +101,8 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
               showCancelButton: true
             }).then((result) => {
               if (result.value) {
-                console.log("OK PODEMOS EDITAR AL CLIENTE");
-                putCliente(formulario);
+                console.log("OK PODEMOS EDITAR EL PRODUCTO");
+                putProducto(formulario);
               }
             })
           } else {
@@ -111,8 +113,8 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
               showCancelButton: true
             }).then((result) => {
               if (result.value) {
-                console.log("OK PODEMOS CREAR AL USUARIO");
-                postCliente(formulario);
+                console.log("OK PODEMOS CREAR EL PRODUCTO");
+                postProducto(formulario);
               }
             })
           }
@@ -122,50 +124,50 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
     return (
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Registrar Cliente</h3>
+            <h3 className="card-title">Registrar Producto</h3>
           </div>
           <div className="card-body">
             <form className="row" onSubmit={enviarFormulario}>
               <div className="form-group col-md-3">
                 <label htmlFor="">Nombre:</label>
-                <input type="text" name="cli_nom"
+                <input type="text" name="pro_nom"
                   className="form-control"
                   onChange={handleChange}
-                  value={formulario.cli_nom} />
+                  value={formulario.pro_nom} />
               </div>
               <div className="form-group col-md-3">
-                <label htmlFor="">Apellido:</label>
-                <input type="text" name="cli_ape"
+                <label htmlFor="">Precio:</label>
+                <input type="text" name="pro_prec"
                   className="form-control" onChange={handleChange}
-                  value={formulario.cli_ape} />
+                  value={formulario.pro_prec} />
     
               </div>
               <div className="form-group col-md-3">
                 <label htmlFor="">Estado:</label>
-                <select className="form-control" name="cli_est"
+                <select className="form-control" name="pro_est"
                   onChange={handleChange}
-                  value={formulario.cli_est}>
+                  value={formulario.pro_est}>
                   <option value="">-Seleccione-</option>
-                  <option value="true">Activo</option>
-                  <option value="false">Inactivo</option>
+                  <option value="true">ConStock</option>
+                  <option value="false">SinStock</option>
                 </select>
               </div>
               <div className="form-group col-md-3">
-                <label htmlFor="">Dni:</label>
-                <input type="text" name="cli_dni"
+                <label htmlFor="">URL Imagen:</label>
+                <input type="text" name="pro_img"
                   className="form-control"
-                  value={formulario.cli_dni}
+                  value={formulario.pro_img}
                   onChange={handleChange} />
     
               </div>
               <div className="form-group col-md-6">
                 {
-                  objCliente ?
+                  objProducto ?
                     <button className="btn btn-success btn-block" type="submit">
-                      Actualizar Cliente
+                      Actualizar Producto
                     </button> :
                     <button className="btn btn-primary btn-block" type="submit">
-                      Crear Cliente
+                      Crear Producto
                     </button>
                 }
               </div>
@@ -177,7 +179,7 @@ const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
             </form>
           </div>
         </div>
-      )
+    );
 }
 
-export default ClienteForm
+export default ProductoForm;
