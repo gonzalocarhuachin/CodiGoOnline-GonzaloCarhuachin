@@ -38,10 +38,10 @@ const ProductoFila = ({producto, numero, setObjProducto}) => {
             <td>{numero}</td>
             <td>{producto.id}</td>
             <td>{producto.pro_nom}</td>
-            <td>{producto.pro_prec}</td>
+            <td>S/. {producto.pro_prec}</td>
             <td>
                 {
-                    producto.pro_est === "true" ? <span className="badge badge-success">ConStock</span> : <span badge badge-danger>SinStock</span>
+                    producto.pro_est === "true" ? <span className="badge badge-success">ConStock</span> : <span className="badge badge-danger">SinStock</span>
                 }
                 <Switch checked={checked} onChange={putProducto} />    
             </td>
