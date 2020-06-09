@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Swal from 'sweetalert2';
 import { URL_BACKEND } from '../../../variables/variables';
+import ClienteContext from '../../../context/cliente/clienteContext';
 
 const ClienteForm = ({getClientes, objCliente, setObjCliente}) => {
+
+  const clienteContextLocal = useContext(ClienteContext);
+  const {objCliente, setObjCliente} = clienteContextLocal;
 
     let formVacio = {
         cli_nom: '',

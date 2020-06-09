@@ -3,6 +3,7 @@ import Cargando from '../../components/Cargando';
 import RepartidoresTabla from './componentes/RepartidoresTabla';
 // import RepartidorForm from './componentes/RepartidorForm';
 import RepartidorFormV2 from './componentes/RepartidorFormV2';
+import {withRouter} from 'react-router-dom';
 
 const Repartidores = () => {
 
@@ -50,4 +51,5 @@ const Repartidores = () => {
     )
 }
 
-export default Repartidores;
+//withRouter = funcion que sirve para renderizar el componente con los props del sistema de enrutamiento(history, match, etc)
+export default withRouter (Repartidores);

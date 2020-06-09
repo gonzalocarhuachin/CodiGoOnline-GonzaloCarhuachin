@@ -24,6 +24,9 @@ const Header = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to={"/repartidores"}>Repartidores</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={"/register"}>Crear Cuenta</Link>
+                        </li>
                         
                     </ul>
                     <form className="form-inline my-2 my-lg-0">

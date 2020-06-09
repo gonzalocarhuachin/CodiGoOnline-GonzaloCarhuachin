@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Switch from 'react-switch';
 import { URL_BACKEND } from '../../../variables/variables';
+import ClienteContext from '../../../context/cliente/clienteContext';
 
 const ClienteFila = ({cliente, numero, setObjCliente}) => {
+
+    const clienteContextLocal = useContext(ClienteContext);
+    const {objCliente, setObjCliente} = clienteContextLocal;
 
     const [checked, setChecked] = useState(false);
 
