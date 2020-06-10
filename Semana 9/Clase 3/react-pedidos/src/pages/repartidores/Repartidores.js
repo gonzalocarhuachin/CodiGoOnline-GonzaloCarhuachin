@@ -1,11 +1,15 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useContext } from 'react';
 import Cargando from '../../components/Cargando';
 import RepartidoresTabla from './componentes/RepartidoresTabla';
 // import RepartidorForm from './componentes/RepartidorForm';
 import RepartidorFormV2 from './componentes/RepartidorFormV2';
 import {withRouter} from 'react-router-dom';
+import AuthContext from '../../context/auth/authContext';
 
 const Repartidores = () => {
+
+    const authContextLocal = useContext(AuthContext);
+    const {autenticarConStorage} = authContextLocal;
 
     const endpoint = "https://5ec8643e155c130016a909bf.mockapi.io/repartidor";
     const [cargando, setCargando] = useState(true);
@@ -29,6 +33,9 @@ const Repartidores = () => {
         })
     }
     useEffect(() => {
+        //en caso la pagina recargue, el componente Repartidores tendra la obligacion de ejecutar solo una vez
+        //la funcion autenticarConStorage para verificar si tenemos una sesion ya iniciada con el LS
+        autenticarConStorage();
         getRepartidores();
        }, [])
     

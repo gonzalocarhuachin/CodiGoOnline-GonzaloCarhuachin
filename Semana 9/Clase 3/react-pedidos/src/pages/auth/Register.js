@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AuthService } from '../../servicios/AuthService';
+import Swal from 'sweetalert2';
 
-const Register = () => {
+const Register = (props) => {
 
     const [formulario, setFormulario] = useState({
             usu_nom: "",
@@ -29,7 +30,18 @@ const Register = () => {
             }
             objAuth.postUsuario(objUsuario).then(data => 
                 {
-                    console.log(data);
+                    if(data.codigoHttp === 201)
+                    {
+                        //significa que el usuario ha sido registrado correctamente
+                        Swal.fire(
+                            {
+                                icon: 'success',
+                                title: 'Usuario registrado correctamente',
+                                timer: 1500
+                            })
+                        //redireccionar a la pagina del login con el usuario recien creado
+                        props.history.push("/login");
+                    }
                 })
         }
     }

@@ -1,7 +1,12 @@
-import React from 'react';
+import React, {useContext, Fragment} from 'react';
 import {Link} from 'react-router-dom';
+import AuthContext from '../context/auth/authContext';
 
 const Header = () => {
+
+    const authContextLocal = useContext(AuthContext);
+    const {autenticado, usuario, cerrarSesion} = authContextLocal;
+
     return (
         <header>
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -11,23 +16,39 @@ const Header = () => {
                     aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li className="nav-item">
-                            {/* <a className="nav-link" href="!#">Clientes</a> */}
-                            <Link className="nav-link" to={"/clientes"}>Clientes</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={"/pedidos"}>Pedidos</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={"/productos"}>Productos</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={"/repartidores"}>Repartidores</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={"/register"}>Crear Cuenta</Link>
-                        </li>
-                        
+                        {
+                            autenticado ?
+                            <Fragment>
+                                <li className="nav-item">
+                                    {/* <a className="nav-link" href="!#">Clientes</a> */}
+                                    <Link className="nav-link" to={"/clientes"}>Clientes</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/pedidos"}>Pedidos</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/productos"}>Productos</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/repartidores"}>Repartidores</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" onClick={() =>
+                                    {
+                                        //Cerrar sesion globalmente
+                                        cerrarSesion();
+                                    }}>Cerrar Sesion</Link>
+                                </li>
+                            </Fragment> :
+                            <Fragment>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/register"}>Crear Cuenta</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to={"/login"}>Iniciar Sesion</Link>
+                                </li>
+                            </Fragment>
+                        }
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                         <input className="form-control mr-sm-2" type="text" placeholder="Search"/>
