@@ -16,6 +16,7 @@ import ClienteState from './context/cliente/clienteState';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import AuthState from './context/auth/authState';
+import RutaProtegida from './components/RutaProtegida';
 
 function App() {
   const logeado = false;
@@ -27,12 +28,16 @@ function App() {
             <Header/>
             <main className="container-fluid pt-3">
               <Switch>
-                <Route exact path={"/clientes"} component={Clientes}/>
-                <Route exact path={"/pedidos"} component={Pedidos}/>
-                <Route exact path={"/repartidores"} component={Repartidores}/>
+                <RutaProtegida exact path={"/repartidores"} Component={Clientes}/>
+                {/* <Route exact path={"/clientes"} component={Clientes}/> */}
+                <RutaProtegida exact path={"/repartidores"} Component={Pedidos}/>
+                {/* <Route exact path={"/pedidos"} component={Pedidos}/> */}
+                <RutaProtegida exact path={"/repartidores"} Component={Repartidores}/>
+                {/* <Route exact path={"/repartidores"} component={Repartidores}/> */}
                 <Route exact path={"/register"} component={Register}/>
                 <Route exact path={"/login"} component={Login}/>
-                <Route exact path={"/productos"} component={Productos}/>
+                <RutaProtegida exact path={"/repartidores"} Component={Productos}/>
+                {/* <Route exact path={"/productos"} component={Productos}/> */}
                 <Route exact path={"/"} component={Home}/>
               </Switch>
             </main>

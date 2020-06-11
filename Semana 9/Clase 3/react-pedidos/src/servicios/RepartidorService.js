@@ -10,7 +10,14 @@ export class RepartidorService
     {
         return new Promise((resolve, reject) => 
         {
-            fetch(`${URL_BACKEND}${this.endpoint}`).then((response) =>
+            fetch(`${URL_BACKEND}${this.endpoint}`, {
+                // method: "GET",
+                // headers:{
+                //     "Authorization": "Bearer (token)",
+                //     "Content-type": "application/json"
+                // },
+                // body: null
+            }).then((response) =>
         {
             response.json().then((repartidores) =>
             {

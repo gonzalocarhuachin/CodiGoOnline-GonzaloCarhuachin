@@ -1,4 +1,4 @@
-import React, { Fragment, useState,useEffect } from 'react';
+import React, { Fragment, useState,useEffect, useContext } from 'react';
 import ClienteForm from './componentes/ClienteForm';
 import Cargando from '../../components/Cargando';
 import ClientesTabla from './componentes/ClientesTabla';
@@ -9,6 +9,8 @@ const Clientes = () => {
     const [cargando, setCargando] = useState(true);
     const [clientes, setClientes] = useState([]);
     const [objCliente, setObjCliente] = useState(null);
+    const authContextLocal = useContext(AuthContext);
+    const {autenticarConStorage} = authContextLocal;
 
     const getClientes = () =>
     {
@@ -29,6 +31,7 @@ const Clientes = () => {
 
     useEffect(() =>
     {
+        autenticarConStorage();
         getClientes();
     }, [])
 

@@ -11,7 +11,8 @@ const authState = (props) =>
     {
         autenticado: null,
         token: "",
-        usuario: null
+        usuario: null,
+        mensaje: null
     }
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
@@ -31,6 +32,10 @@ const authState = (props) =>
                 else
                 {
                     //generar un error
+                    dispatch({
+                        type: "ERROR_SESION",
+                        payload: data.contenido
+                    })
                 }
             })
     }
@@ -57,6 +62,12 @@ const authState = (props) =>
                     payload: token
                 })
             }
+            else
+            {
+                dispatch({
+                    type: "BORRAR_SESION"
+                })
+            }
         }
     }
 
@@ -67,7 +78,8 @@ const authState = (props) =>
                 usuario: state.usuario,
                 iniciarSesion: iniciarSesion,
                 cerrarSesion: cerrarSesion,
-                autenticarConStorage: autenticarConStorage
+                autenticarConStorage: autenticarConStorage,
+                mensaje:state.mensaje
             }}>
 
             {props.children}

@@ -1,9 +1,13 @@
-import React, { Fragment, useState,useEffect } from 'react';
+import React, { Fragment, useState,useEffect, useContext } from 'react';
 import PedidoForm from './componentes/PedidoForm';
 import Cargando from '../../components/Cargando';
 import PedidosTabla from './componentes/PedidosTabla';
+import AuthContext from '../../context/auth/authContext';
 
 const Pedidos = () => {
+
+    const authContextLocal = useContext(AuthContext);
+    const {autenticarConStorage} = authContextLocal;
 
     const endpoint = "https://5ec8643e155c130016a909bf.mockapi.io/pedido";
     const [cargando, setCargando] = useState(true);
@@ -30,6 +34,7 @@ const Pedidos = () => {
     useEffect(() =>
     {
         getPedidos();
+        autenticarConStorage();
     }, [])
 
     return (

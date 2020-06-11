@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useContext } from 'react';
 import Cargando from '../../components/Cargando';
 import ProductoForm from './componentes/ProductoForm';
 import ProductosTabla from './componentes/ProductosTabla';
@@ -10,6 +10,8 @@ const Productos = () => {
     const [cargando, setCargando] = useState(true);
     const [productos, setProductos] = useState([]);
     const [objProducto, setObjProducto] = useState(null);
+    const authContextLocal = useContext(AuthContext);
+    const {autenticarConStorage} = authContextLocal;
 
     const getProductos = () =>
     {
@@ -31,6 +33,7 @@ const Productos = () => {
     useEffect(() =>
     {
         getProductos();
+        autenticarConStorage();
     }, [])
 
     return (

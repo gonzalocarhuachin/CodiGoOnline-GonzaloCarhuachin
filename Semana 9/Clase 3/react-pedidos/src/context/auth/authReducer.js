@@ -15,8 +15,10 @@ const AuthReducer = (state, action) =>
                 ...state,
                 autenticado: true,
                 token: action.payload,
-                usuario: medioDecJson.usu_nom
+                usuario: medioDecJson.usu_nom,
+                mensaje: null
             }
+        case "BORRAR_SESION":
         case "CERRAR_SESION":
             localStorage.removeItem("token");
             return{
@@ -25,6 +27,12 @@ const AuthReducer = (state, action) =>
                 token: "",
                 usuario: null
             }
+        case "ERROR_SESION": {
+            return{
+                ...state,
+                mensaje: action.payload
+            }
+        }
     }
 }
 
